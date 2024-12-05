@@ -1,0 +1,97 @@
+{
+	"novo componente":{
+		"scope": "typescriptreact",
+		"prefix": "mkcomponent",
+		"body": [
+			"import React from 'react';",
+			"import { ${TM_DIRECTORY/.*nts.//gm}Props } from \"../../entities/componentEntities/${TM_DIRECTORY/.*nts.//gm}Interfaces\";",
+			"",
+			"const ${TM_DIRECTORY/.*nts.//gm}: React.FC<${TM_DIRECTORY/.*nts.//gm}Props> = ({ ...props }) => {",
+			"    return (",
+			"        $2",
+			"    );",
+			"};",
+			"",
+			"export default ${TM_DIRECTORY/.*nts.//gm};"
+		],
+		"description": "Cria um novo componente",
+		"isFileTemplate": true
+	},
+	"novo tipo":{
+		"scope": "typescript",
+		"prefix": "extype",
+		"body": [
+			"export type $1 = ${2:{\n}}",
+		],
+		"description": "Cria um tipo para exportar"
+	},
+	"nova tela":{
+		"scope": "typescriptreact",
+		"prefix": "mkscreen",
+		"body": [
+			"import React from 'react';",
+			"import { StaticScreenProps } from \"@react-navigation/native\";",
+			"import { VSScreen } from \"../../components/VSScreen\";",
+			"",
+			"type ${TM_DIRECTORY/.*ens.//gm}Props = {};",
+			"export const ${TM_DIRECTORY/.*ens.//gm}: React.FC<StaticScreenProps<${TM_DIRECTORY/.*ens.//gm}Props>> = ({ ...props }) => {",
+			"    return (",
+			"        <VSScreen name=\"${TM_DIRECTORY/.*ens.//gm}\">",
+			"            $2",
+			"        </VSScreen>",
+			"    );",
+			"};",
+		],
+		"description": "Cria uma nova tela",
+		"isFileTemplate": true
+	},
+	"novo hook":{
+		"scope": "typescriptreact",
+		"prefix": "mkhook",
+		"body": [
+			"import React, { createContext, useContext, useState } from 'react';",
+			"",
+			"interface ${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}ContextProps {",
+			"    value: string;",
+			"};",
+			"",
+			"const ${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}Context = createContext<${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}ContextProps | undefined>(undefined);",
+			"",
+			"interface ${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}ProviderProps {",
+			"    children: React.ReactNode;",
+			"};",
+			"",
+			"export const ${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}Provider: React.FC<${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}ProviderProps> = ({ children }) => {",
+			"    const [value, setValue] = useState<string>('');",
+			"",
+			"    return (",
+			"        <${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}Context.Provider value={{ value }}>",
+			"            {children}",
+			"        </${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}Context.Provider>",
+			"    );",
+			"};",
+			"",
+			"export const use${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/} = () => {",
+			"    const context = useContext(${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}Context);",
+			"",
+			"    if (!context) {",
+			"        throw new Error('use${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/} must be used within an ${TM_FILENAME_BASE/^(\\w+)/${1:/capitalize}/}Provider');",
+			"    };",
+			"",
+			"    return context;",
+			"};",
+		],
+		"description": "Cria um novo hook",
+		"isFileTemplate": true
+	},
+	"novo styled component":{
+		"scope": "typescript",
+		"prefix": "exsty",
+		"body": [
+			"export const $1 = styled.$2`",
+			"    $3",
+			"`;",
+		],
+		"description": "Cria um novo styled component"
+	},
+}
