@@ -9,9 +9,14 @@ export const StyledView = styled.SafeAreaView`
 export const StyledContent = styled.ScrollView.attrs({
     contentContainerStyle: {
         flexGrow: 1,
-        justifyContent: 'center'
+        padding: 20
     }
 })`
+`;
+
+export const StyledContentNoScroll = styled.View`
+    flex-grow: 1;
+    padding: 20px;
 `;
 
 export const StyledTitle = styled(Text).attrs({

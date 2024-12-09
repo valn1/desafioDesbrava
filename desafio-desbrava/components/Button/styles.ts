@@ -9,8 +9,10 @@ export const StyledButton = styled.TouchableOpacity<ButtonProps>`
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    ${({ bordered, theme }) => bordered ? `border: 1px solid ${theme.text};` : ''}
+    ${({ bordered, theme }) => bordered ? `border: 1px solid ${theme.primaryBorder};` : ''}
     ${({ filled, theme }) => filled ? `background-color:${theme.primary};` : ''}
+    ${({ secondary, theme }) => secondary ? `background-color:${theme.secondary};` : ''}
     ${({ quiet }) => quiet ? 'background-color: transparent;' : ''}
     ${({ disabled }) => disabled ? 'opacity: 0.5;' : ''}
+    ${({ secondary, theme }) => secondary ? `border-color:${theme.secondaryBorder};` : ''}
 `;

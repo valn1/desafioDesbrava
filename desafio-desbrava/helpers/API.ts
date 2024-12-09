@@ -19,6 +19,8 @@ const post = async (url: string, body: any) => {
 const get = async (url: string) => {
     try {
         const data = await requestManager.get(url)
+        console.log(url);
+        
         return await validateResponse(data)
     } catch (error) {
         return Promise.reject(error)
@@ -32,7 +34,7 @@ export const API = {
     '/repos' : (username:string) => {
         return get(`/users/${username}/repos`)
     },
-    '/repo_details' : (username:string, repo:string) => {
-        return get(`/repos/${username}/${repo}`)
+    '/repo_details' : (fullname:string) => {
+        return get(`/repos/${fullname}`)
     },
 }

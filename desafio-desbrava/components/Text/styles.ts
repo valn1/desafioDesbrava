@@ -3,7 +3,6 @@ import { TextProps } from '../../entities/componentEntities/Text';
 
 export const CustomText = styled.Text<TextProps>`
     font-size: 16px;
-    text-align: center;
     color: ${({ color, theme }) => color || theme.text};
     ${({ size }) => size ? `font-size: ${size}px;` : ''}
     ${({ bold }) => bold ? 'font-weight: bold;' : ''}
