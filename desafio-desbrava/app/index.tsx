@@ -6,7 +6,7 @@ import { API } from "@/helpers/API";
 import Toast from 'react-native-simple-toast';
 
 export default function Index() {
-  const [search, setSearch] = useState('valn1');
+  const [search, setSearch] = useState('');
 
   const handlePesquisar = () => {
     API['/users'](search)
