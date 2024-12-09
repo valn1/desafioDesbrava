@@ -7,6 +7,7 @@ export type ButtonProps = TouchableOpacityProps & {
     bordered?: boolean;
     disabled?: boolean;
     filled?: boolean;
+    secondary?: boolean;
     rtl?: boolean;
     iconProps?: IconProps;
 };

@@ -6,4 +6,6 @@ export type ThemeType = {
     secondaryBorder: string;
     background: string;
     text: string;
+    danger: string;
+    accent: string;
 }

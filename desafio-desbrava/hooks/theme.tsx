@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { ThemeType } from '../entities/commons/theme';
 import { themes } from '@/constants/theme';
 import { ThemeProvider as SThemeProvider } from 'styled-components/native';
+import { useColorScheme } from 'react-native';
 
 interface ThemeContextProps {
     theme: ThemeType;
@@ -18,10 +19,16 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
     const [theme, setTheme] = useState<ThemeType>(themes.light);
+    const colorScheme = useColorScheme();
+
     const toggleTheme = () => {
         const newTheme = theme.name === 'light' ? themes.dark : themes.light;
         setTheme(newTheme);
     }
+
+    useEffect(() => {
+        setTheme(themes[colorScheme || 'light']);
+    },[colorScheme]);
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
