@@ -25,7 +25,7 @@ Selecione a última opção e escaneie o qrcode com o app Expo Go.
 
 ## Baixando o apk
 
-Deixei uma build pronta para ser instalado em qualquer aparelho android. Basta [clicar aqui](https://expo.dev/accounts/valn1/projects/desafio-desbrava/builds/586a4757-5ade-479e-9158-135616599bd5).
+Deixei uma build pronta para ser instalado em qualquer aparelho android. Basta [clicar aqui](https://expo.dev/accounts/valn1/projects/desafio-desbrava/builds/bb957559-f804-44a7-a3c5-db86c733afbf).
 
 ## Problemas ao executar localmente?
 
